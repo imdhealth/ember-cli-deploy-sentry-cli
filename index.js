@@ -55,12 +55,6 @@ module.exports = {
         this.log("SENTRY: Creating release...");
         this.sentryCliExec("releases", `new "${releaseName}"`);
 
-        this.log("SENTRY: Assigning commits...");
-        this.sentryCliExec(
-          "releases",
-          `set-commits "${releaseName}" --auto --ignore-missing --ignore-empty`
-        );
-
         this.log("SENTRY: Uploading source maps...");
         this.sentryCliExec(
           "releases",
